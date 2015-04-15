@@ -5,7 +5,7 @@ module ActiveRecord
 
         QUOTED_TRUE  = '1'
         QUOTED_FALSE = '0'
-        QUOTED_STRING_PREFIX = 'N'
+        QUOTED_STRING_PREFIX = ''
 
         def quote_string(s)
           SQLServer::Utils.quote_string(s)
