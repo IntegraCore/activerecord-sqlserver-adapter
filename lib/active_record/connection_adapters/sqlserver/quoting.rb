@@ -3,7 +3,7 @@ module ActiveRecord
     module Sqlserver
       module Quoting
         QUOTED_TRUE, QUOTED_FALSE = '1', '0'
-        QUOTED_STRING_PREFIX = ''
+        QUOTED_STRING_PREFIX = 'N'
 
         def quote(value, column = nil)
           case value
@@ -14,7 +14,7 @@ module ActiveRecord
               column.class.string_to_binary(value)
             elsif column && [:uuid, :uniqueidentifier].include?(column.type)
               "'#{quote_string(value)}'"
-            elsif value.is_utf8? || (column && column.type == :string)
+            elsif value.is_utf8?
               "#{quoted_string_prefix}'#{quote_string(value)}'"
             else
               super
