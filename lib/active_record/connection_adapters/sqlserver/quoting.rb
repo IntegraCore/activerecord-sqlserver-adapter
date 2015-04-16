@@ -3,7 +3,7 @@ module ActiveRecord
     module Sqlserver
       module Quoting
         QUOTED_TRUE, QUOTED_FALSE = '1', '0'
-        QUOTED_STRING_PREFIX = ''
+        QUOTED_STRING_PREFIX = 'N'
 
         def quote(value, column = nil)
           case value
