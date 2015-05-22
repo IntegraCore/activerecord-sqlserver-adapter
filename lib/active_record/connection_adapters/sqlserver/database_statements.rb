@@ -358,7 +358,7 @@ module ActiveRecord
             end
           else
             sql = "EXEC sp_executesql N#{quote(sql)}"
-            sql << ", #{quote(names_and_types.join(', '))}, #{params.join(', ')}" unless binds.empty?
+            sql << ", N#{quote(names_and_types.join(', '))}, #{params.join(', ')}" unless binds.empty?
           end
           raw_select sql, name, binds, options
         end
